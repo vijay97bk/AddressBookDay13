@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using System.Text;
 
-namespace AddressBookUsingCollection
+namespace AddressBookDay13
 {
     class Person
     {

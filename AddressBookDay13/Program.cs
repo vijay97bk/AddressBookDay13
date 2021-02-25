@@ -1,6 +1,6 @@
 ﻿using System;
 
-namespace AddressBookUsingCollection
+namespace AddressBookDay13
 {
     class Program
     {
@@ -17,10 +17,10 @@ namespace AddressBookUsingCollection
             do
             {
                 Console.WriteLine("Enter Choice:");
-                Console.WriteLine("1) Display Entries");
-                Console.WriteLine("2) enter new Contact");
+                Console.WriteLine("1) Display All Entries");
+                Console.WriteLine("2) Insert new Contact");
                 Console.WriteLine("3) Edit Contact");
-                Console.WriteLine("4) remove Contact");
+                Console.WriteLine("4) Delete Contact");
                 Console.WriteLine("5) Add New Address Book");
                 Console.WriteLine("6) List of all Address Book");
                 Console.WriteLine("7) Exit");
