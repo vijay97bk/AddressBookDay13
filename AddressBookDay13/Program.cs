@@ -1,6 +1,6 @@
 ﻿using System;
 
-namespace AddressBookUsingCollection
+namespace AddressBookDay13
 {
     public class Program
     {
@@ -17,13 +17,12 @@ namespace AddressBookUsingCollection
             do
             {
                 Console.WriteLine("Enter Choice:");
-                Console.WriteLine("1) Display Entries");
-                Console.WriteLine("2) enter new Contact");
+                Console.WriteLine("1) Display All Entries");
+                Console.WriteLine("2) Insert new Contact");
                 Console.WriteLine("3) Edit Contact");
-                Console.WriteLine("4) remove Contact");
+                Console.WriteLine("4) Delete Contact");
                 Console.WriteLine("5) Add New Address Book");
                 Console.WriteLine("6) List of all Address Book");
-                Console.WriteLine("7) Search person in city or state");
                 Console.WriteLine("7) Exit");
                 choice = Convert.ToInt32(Console.ReadLine());
                 switch (choice)
@@ -52,7 +51,7 @@ namespace AddressBookUsingCollection
                         Console.WriteLine("Enter New Address Book Name");
                         addressBookName = Console.ReadLine();
                         addressBookCollection.addressBookDictionary.Add(addressBookName, new AddressBook());
-                        Console.WriteLine("Address Book selected: " + addressBookName);
+                        Console.WriteLine($"Address Book {addressBookName} selected!");
                         break;
                     case 6:
                         Console.WriteLine("Listing all Address Books");
@@ -63,18 +62,11 @@ namespace AddressBookUsingCollection
                         Console.WriteLine("Select an Address Book");
                         addressBookName = Console.ReadLine();
                         break;
-                    case 7:
-                        Console.WriteLine("Enter First Name");
-                        firstName = Console.ReadLine();
-                        Console.WriteLine("Enter Last Name");
-                        lastName = Console.ReadLine();
-                        addressBookCollection.SearchPersonInCityOrState(firstName, lastName);
-                        break;
                     default:
                         Console.WriteLine("Thank you!!!!!!!!!");
                         break;
                 }
-            } while (choice != 8);
+            } while (choice != 7);
 
 
         }
