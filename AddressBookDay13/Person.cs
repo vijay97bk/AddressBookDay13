@@ -4,9 +4,9 @@ using System.Text;
 
 namespace AddressBookDay13
 {
-   public class Person
+    public class Person
     {
-        //variables
+        //Glob. variables
         public string firstName;
         public string lastName;
         public string address;

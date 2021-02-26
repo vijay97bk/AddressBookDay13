@@ -6,12 +6,19 @@ namespace AddressBookDay13
 {
     public class AddressBook
     {
-        List<Person> addressBook;//list collection
+        public List<Person> addressBook;
         public AddressBook()
         {
             addressBook = new List<Person>();
         }
 
+        public void AddAddressBookEntry(Person person)
+        {
+            addressBook.Add(person);
+        }
+        /// <summary>
+        /// Adding new entry and checking for duplicate entry UC7
+        /// </summary>
         public void AddAddressBookEntry()
         {
             Person personEntered = new Person();
@@ -19,6 +26,9 @@ namespace AddressBookDay13
             personEntered.firstName = Console.ReadLine();
             Console.WriteLine("Enter Last name");
             personEntered.lastName = Console.ReadLine();
+            
+            //Checking for entered person is already exists UC7
+
             if (addressBook.Find(i => personEntered.Equals(i)) != null)
             {
                 Console.WriteLine("Person already Exists, enter new person!");
@@ -38,6 +48,9 @@ namespace AddressBookDay13
             personEntered.email = Console.ReadLine();
             addressBook.Add(personEntered);
         }
+        /// <summary>
+        /// Displaying all all names
+        /// </summary>
         public void DisplayNamesInAddresBook()
         {
             if (addressBook.Count == 0)
@@ -49,7 +62,11 @@ namespace AddressBookDay13
                 person.DisplayPerson();
             }
         }
-
+        /// <summary>
+        /// Editing contact through "firstName" and "LastName"
+        /// </summary>
+        /// <param name="firstName"></param>
+        /// <param name="lastName"></param>
         public void EditContact(string firstName, string lastName)
         {
             int index = 0;
@@ -63,7 +80,7 @@ namespace AddressBookDay13
                 }
                 index++;
             }
-            if (found)
+            if (found == true)
             {
                 Console.WriteLine("Enter First name");
                 addressBook[index].firstName = Console.ReadLine();
@@ -83,9 +100,14 @@ namespace AddressBookDay13
                 addressBook[index].email = Console.ReadLine();
             }
             else
-                Console.WriteLine("Entry Not found for the name");
+                Console.WriteLine("enterd contact not found in address book ");
         }
 
+        /// <summary>
+        /// deleting contact
+        /// </summary>
+        /// <param name="firstName"></param>
+        /// <param name="lastName"></param>
         public void DeleteContact(string firstName, string lastName)
         {
             int index = 0;
@@ -105,5 +127,4 @@ namespace AddressBookDay13
                 Console.WriteLine("Entry Not found");
         }
     }
-
 }
