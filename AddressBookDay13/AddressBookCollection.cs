@@ -10,8 +10,15 @@ namespace AddressBookDay13
     public class AddressBookCollection
     {
         public Dictionary<string, AddressBook> addressBookDictionary;
+        /// <summary>
+        /// creating new dictionary for city and state for UC8
+        /// </summary>
+        public Dictionary<string, List<Person>> cityDictionary;
+        public Dictionary<string, List<Person>> stateDictionary;
         public AddressBookCollection()
         {
+            cityDictionary = new Dictionary<string, List<Person>>();
+            stateDictionary = new Dictionary<string, List<Person>>();
             addressBookDictionary = new Dictionary<string, AddressBook>();
         }
         /// <summary>
@@ -43,6 +50,22 @@ namespace AddressBookDay13
                     Console.WriteLine($" {person.firstName} {person.lastName} is in {person.city} {person.state}");
                 }
             }
+        }
+
+        internal void ViewPersonsByCityOrState(string cityName, string stateName)
+        {
+            Console.WriteLine($"People in {cityName} city:");
+            foreach (Person person in cityDictionary[cityName])
+            {
+                Console.WriteLine(person.firstName + " " + person.lastName);
+            }
+
+            Console.WriteLine($"People in {stateName} state:");
+            foreach (Person person in stateDictionary[stateName])
+            {
+                Console.WriteLine(person.firstName + " " + person.lastName);
+            }
+           
         }
     }
 }
