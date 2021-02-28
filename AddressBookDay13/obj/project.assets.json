@@ -13,11 +13,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\Vijay Kshirasagar\\Desktop\\C# Work\\AddressBookDay13\\AddressBookDay13\\AddressBookDay13.csproj",
+      "projectUniqueName": "C:\\Users\\Vijay Kshirasagar\\Desktop\\C# Work\\CORE\\AddressBookDay13\\AddressBookDay13\\AddressBookDay13.csproj",
       "projectName": "AddressBookDay13",
-      "projectPath": "C:\\Users\\Vijay Kshirasagar\\Desktop\\C# Work\\AddressBookDay13\\AddressBookDay13\\AddressBookDay13.csproj",
+      "projectPath": "C:\\Users\\Vijay Kshirasagar\\Desktop\\C# Work\\CORE\\AddressBookDay13\\AddressBookDay13\\AddressBookDay13.csproj",
       "packagesPath": "C:\\Users\\Vijay Kshirasagar\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\Vijay Kshirasagar\\Desktop\\C# Work\\AddressBookDay13\\AddressBookDay13\\obj\\",
+      "outputPath": "C:\\Users\\Vijay Kshirasagar\\Desktop\\C# Work\\CORE\\AddressBookDay13\\AddressBookDay13\\obj\\",
       "projectStyle": "PackageReference",
       "configFilePaths": [
         "C:\\Users\\Vijay Kshirasagar\\AppData\\Roaming\\NuGet\\NuGet.Config",

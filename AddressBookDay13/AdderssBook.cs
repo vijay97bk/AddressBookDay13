@@ -6,6 +6,7 @@ namespace AddressBookDay13
 {
     public class AddressBook
     {
+        public bool found = false;
         public List<Person> addressBook;
         public AddressBook()
         {
@@ -70,6 +71,9 @@ namespace AddressBookDay13
         public void EditContact(string firstName, string lastName)
         {
             int index = 0;
+
+            //try to make new method for searching
+
             bool found = false;
             foreach (Person person in addressBook)
             {
@@ -110,21 +114,32 @@ namespace AddressBookDay13
         /// <param name="lastName"></param>
         public void DeleteContact(string firstName, string lastName)
         {
-            int index = 0;
-            bool found = false;
-            foreach (Person person in addressBook)
-            {
-                if (person.firstName == firstName && person.lastName == lastName)
-                {
-                    found = true;
-                    break;
-                }
-                index++;
-            }
-            if (found)
+            
+            
+           int index= Searching(firstName, lastName, this.found);
+            if (this.found)
                 addressBook.Remove(addressBook[index]);
             else
                 Console.WriteLine("Entry Not found");
         }
+        public int Searching(string firstName, string lastName, bool found)
+        {
+
+            int index = 0;
+           
+            foreach (Person person in addressBook)
+            {
+                if (person.firstName == firstName && person.lastName == lastName)
+                {
+                    this.found = true;
+                    break;
+                }
+                index++;
+                    
+            }
+            return index;
+           
+        }
+
     }
 }

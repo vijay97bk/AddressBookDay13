@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using System.Text;
 
@@ -52,7 +53,7 @@ namespace AddressBookDay13
             }
         }
 
-        internal void ViewPersonsByCityOrState(string cityName, string stateName)
+        public void ViewPersonsByCityOrState(string cityName, string stateName)
         {
             Console.WriteLine($"People in {cityName} city:");
             foreach (Person person in cityDictionary[cityName])
@@ -66,6 +67,16 @@ namespace AddressBookDay13
                 Console.WriteLine(person.firstName + " " + person.lastName);
             }
            
+        }
+        public void ViewCountByCityOrState(string city, string state)
+        {
+            var arrayList = new ArrayList
+            {
+                "Count of " + city + " is " + cityDictionary[city].Count,
+                "Count of " + state + " is " + stateDictionary[state].Count
+            };
+            Console.WriteLine("Count of  " + city + " is " + cityDictionary[city].Count);
+            Console.WriteLine(" Count of " + state + " is " + stateDictionary[state].Count);
         }
     }
 }

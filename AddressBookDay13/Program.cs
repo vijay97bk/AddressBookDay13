@@ -23,6 +23,7 @@ namespace AddressBookDay13
                 Console.WriteLine("6 List of all Address Book");
                 Console.WriteLine("7 Search person in city or state");
                 Console.WriteLine("8 View person by state or city");
+                Console.WriteLine("9 View count by state or city");
                 Console.WriteLine("Defult Use Case is Exit");
                 choice = Convert.ToInt32(Console.ReadLine());
                 switch (choice)
@@ -75,6 +76,13 @@ namespace AddressBookDay13
                         Console.WriteLine("Enter State Name");
                         string stateName = Console.ReadLine();
                         addressBookCollection.ViewPersonsByCityOrState(cityName, stateName);
+                        break;
+                    case 9:
+                        Console.WriteLine("Enter City name");
+                        cityName = Console.ReadLine();
+                        Console.WriteLine("Enter state name");
+                        stateName = Console.ReadLine();
+                        addressBookCollection.ViewCountByCityOrState(cityName, stateName);
                         break;
                     default:
                         Console.WriteLine("exit");
