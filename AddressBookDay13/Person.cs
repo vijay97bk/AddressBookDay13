@@ -2,11 +2,11 @@
 using System.Collections.Generic;
 using System.Text;
 
-namespace AddressBookUsingCollection
+namespace AddressBookDay13
 {
-    class Person
+    public class Person
     {
-        //variables
+        //Glob. variables
         public string firstName;
         public string lastName;
         public string address;
@@ -18,11 +18,6 @@ namespace AddressBookUsingCollection
 
         public override bool Equals(object obj)
         {
-            // If the passed object is null
-            if (obj == null)
-            {
-                return false;
-            }
             if (!(obj is Person))
             {
                 return false;

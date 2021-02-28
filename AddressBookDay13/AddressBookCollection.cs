@@ -1,17 +1,30 @@
-﻿using AddressBookUsingCollection;
-using System;
+﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using System.Text;
 
-namespace AddressBookUsingCollection
+namespace AddressBookDay13
 {
+    /// <summary>
+    /// Creating Collection
+    /// </summary>
     public class AddressBookCollection
     {
-        public Dictionary<string, AddressBook> addressBookDictionary;//Dictionary collection
+        public Dictionary<string, AddressBook> addressBookDictionary;
+        /// <summary>
+        /// creating new dictionary for city and state for UC8
+        /// </summary>
+        public Dictionary<string, List<Person>> cityDictionary;
+        public Dictionary<string, List<Person>> stateDictionary;
         public AddressBookCollection()
         {
+            cityDictionary = new Dictionary<string, List<Person>>();
+            stateDictionary = new Dictionary<string, List<Person>>();
             addressBookDictionary = new Dictionary<string, AddressBook>();
         }
+        /// <summary>
+        /// Printing all address book names
+        /// </summary>
         public void PrintAllAddressBookNames()
         {
             foreach (var AddressBookItem in addressBookDictionary)
@@ -19,124 +32,51 @@ namespace AddressBookUsingCollection
                 Console.WriteLine(AddressBookItem.Key);
             }
         }
+        /// <summary>
+        /// UC8 searching persons City and state
+        /// </summary>
+        /// <param name="firstName"></param>
+        /// <param name="lastName"></param>
         public void SearchPersonInCityOrState(string firstName, string lastName)
         {
+           
             foreach (var addressBookEntry in addressBookDictionary)
             {
                 List<Person> PersonInCitiesOrStates = addressBookEntry.Value.addressBook.FindAll(i => (i.firstName == firstName) && (i.lastName == lastName));
+                
+                //I have to add if condition here to check person exists or not, if not then print "person not exists in addressBook"
+
                 foreach (Person person in PersonInCitiesOrStates)
                 {
                     Console.WriteLine($" {person.firstName} {person.lastName} is in {person.city} {person.state}");
                 }
             }
         }
+
+        public void ViewPersonsByCityOrState(string cityName, string stateName)
+        {
+            Console.WriteLine($"People in {cityName} city:");
+            foreach (Person person in cityDictionary[cityName])
+            {
+                Console.WriteLine(person.firstName + " " + person.lastName);
+            }
+
+            Console.WriteLine($"People in {stateName} state:");
+            foreach (Person person in stateDictionary[stateName])
+            {
+                Console.WriteLine(person.firstName + " " + person.lastName);
+            }
+           
+        }
+        public void ViewCountByCityOrState(string city, string state)
+        {
+            var arrayList = new ArrayList
+            {
+                "Count of " + city + " is " + cityDictionary[city].Count,
+                "Count of " + state + " is " + stateDictionary[state].Count
+            };
+            Console.WriteLine("Count of  " + city + " is " + cityDictionary[city].Count);
+            Console.WriteLine(" Count of " + state + " is " + stateDictionary[state].Count);
+        }
     }
 }
-
-
-class AddressBook
-        {
-    public List<Person> addressBook;
-    public AddressBook()
-    {
-        addressBook = new List<Person>();
-    }
-
-    public void AddAddressBookEntry(Person person)
-    {
-        addressBook.Add(person);
-    }
-    public void AddAddressBookEntry()
-    {
-        Person personEntered = new Person();
-        Console.WriteLine("Enter First name");
-        personEntered.firstName = Console.ReadLine();
-        Console.WriteLine("Enter Last name");
-        personEntered.lastName = Console.ReadLine();
-        if (addressBook.Find(i => personEntered.Equals(i)) != null)
-        {
-            Console.WriteLine("Person already Exists, enter new person!");
-            return;
-        }
-        Console.WriteLine("Enter Address");
-        personEntered.address = Console.ReadLine();
-        Console.WriteLine("Enter City");
-        personEntered.city = Console.ReadLine();
-        Console.WriteLine("Enter State");
-        personEntered.state = Console.ReadLine();
-        Console.WriteLine("Enter Zip");
-        personEntered.zip = Console.ReadLine();
-        Console.WriteLine("Enter phoneNumber");
-        personEntered.phoneNumber = Console.ReadLine();
-        Console.WriteLine("Enter Email");
-        personEntered.email = Console.ReadLine();
-        addressBook.Add(personEntered);
-    }
-    public void DisplayNamesInAddresBook()
-    {
-        if (addressBook.Count == 0)
-        {
-            Console.WriteLine("No Names to Display");
-        }
-        foreach (Person person in addressBook)
-        {
-            person.DisplayPerson();
-        }
-    }
-
-    public void EditContact(string firstName, string lastName)
-    {
-        int index = 0;
-        bool found = false;
-        foreach (Person person in addressBook)
-        {
-            if (person.firstName == firstName && person.lastName == lastName)
-            {
-                found = true;
-                break;
-            }
-            index++;
-        }
-        if (found)
-        {
-            Console.WriteLine("Enter First name");
-            addressBook[index].firstName = Console.ReadLine();
-            Console.WriteLine("Enter Last name");
-            addressBook[index].lastName = Console.ReadLine();
-            Console.WriteLine("Enter Address");
-            addressBook[index].address = Console.ReadLine();
-            Console.WriteLine("Enter City");
-            addressBook[index].city = Console.ReadLine();
-            Console.WriteLine("Enter State");
-            addressBook[index].state = Console.ReadLine();
-            Console.WriteLine("Enter Zip");
-            addressBook[index].zip = Console.ReadLine();
-            Console.WriteLine("Enter phoneNumber");
-            addressBook[index].phoneNumber = Console.ReadLine();
-            Console.WriteLine("Enter Email");
-            addressBook[index].email = Console.ReadLine();
-        }
-        else
-            Console.WriteLine("Entry Not found for the name");
-    }
-
-    public void DeleteContact(string firstName, string lastName)
-    {
-        int index = 0;
-        bool found = false;
-        foreach (Person person in addressBook)
-        {
-            if (person.firstName == firstName && person.lastName == lastName)
-            {
-                found = true;
-                break;
-            }
-            index++;
-        }
-        if (found)
-            addressBook.Remove(addressBook[index]);
-        else
-            Console.WriteLine("Entry Not found");
-    }
-}
-    }
